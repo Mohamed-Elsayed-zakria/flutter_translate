@@ -33,7 +33,7 @@ class Translate {
     return currentLanguage;
   }
 
-  Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates = [
+  static Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates = [
     Translate._delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalWidgetsLocalizations.delegate,
