@@ -1,3 +1,4 @@
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -10,7 +11,7 @@ class Translate {
     return Localizations.of<Translate>(context, Translate)!;
   }
 
-  static LocalizationsDelegate<Translate> delegate =
+  static final LocalizationsDelegate<Translate> _delegate =
       _AppLocalizationsDelegate();
 
   late Map<String, String> _jsonStrings;
@@ -31,6 +32,13 @@ class Translate {
     String currentLanguage = currentLocale.languageCode;
     return currentLanguage;
   }
+
+  Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates = [
+    Translate._delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ];
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<Translate> {
