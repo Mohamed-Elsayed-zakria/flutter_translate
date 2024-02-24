@@ -1,1 +1,1 @@
-export './flutter_translate.dart';
+export './src/translate.dart';
