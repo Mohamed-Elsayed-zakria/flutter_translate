@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 
 class Translate {
-  final Locale _locale;
+  final Locale? _locale;
   Translate(this._locale);
 
   static Translate of(BuildContext context) {
@@ -18,14 +18,14 @@ class Translate {
 
   Future loadLangJson() async {
     String strings = await rootBundle
-        .loadString('assets/languages/${_locale.languageCode}.json');
+        .loadString('assets/languages/${_locale!.languageCode}.json');
     Map<String, dynamic> jsons = json.decode(strings);
     _jsonStrings = jsons.map((key, value) {
       return MapEntry(key, value.toString());
     });
   }
 
-  String key(String key) => _jsonStrings[key] ?? key;
+  String translate(String key) => _jsonStrings[key] ?? key;
 
   String getCurrentLanguage(BuildContext context) {
     Locale currentLocale = Localizations.localeOf(context);
