@@ -27,12 +27,6 @@ class Translate {
 
   String translate(String key) => _jsonStrings[key] ?? key;
 
-  String getCurrentLanguage(BuildContext context) {
-    Locale currentLocale = Localizations.localeOf(context);
-    String currentLanguage = currentLocale.languageCode;
-    return currentLanguage;
-  }
-
   static Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates = [
     Translate._delegate,
     GlobalMaterialLocalizations.delegate,
